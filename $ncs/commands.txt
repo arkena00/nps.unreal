@@ -1,5 +1,5 @@
 # create repo on github
-gh repo create RTS --public
+gh repo create $ncs.project.name --public
 
 # initialize git
 git init
