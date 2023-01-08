@@ -1,0 +1,3 @@
+entity.name arkena00
+unreal.prefix ARK
+unreal.api ARK_API

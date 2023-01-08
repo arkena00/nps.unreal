@@ -1,0 +1,13 @@
+# create repo on github
+gh repo create RTS --public
+
+# initialize git
+git init
+git lfs install
+git remote add origin https://www.github.com/$ncs.entity.name/$ncs.project.name.git
+git add .
+git commit -a -m "[init]"
+git branch -M master
+git push -u origin master
+git checkout -b dev
+git push -u origin dev
