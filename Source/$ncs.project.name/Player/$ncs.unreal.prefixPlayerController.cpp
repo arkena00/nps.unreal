@@ -2,11 +2,10 @@
 
 void A$ncs.unreal.prefixPlayerController::TryInitializeHUD() const
 {
-    //if (GetPawn() && HasActorBegunPlay() && GetPlayerState<ANVPlayerState>()) Cast<ANVHUD>(GetHUD())->Initialize();
+    //if (GetPawn() && HasActorBegunPlay() && GetPlayerState<A$ncs.unreal.prefixPlayerState>()) Cast<A$ncs.unreal.prefixHUD>(GetHUD())->Initialize();
 }
 
-A$ncs.unreal.prefixPlayerController* ANVPlayerController::Get$ncs.unreal.prefixPlayerController(const UObject* WorldContextObject)
+A$ncs.unreal.prefixPlayerController* A$ncs.unreal.prefixPlayerController::Get$ncs.unreal.prefixPlayerController(const UObject* WorldContextObject)
 {
-    ensure(Cast<A$ncs.unreal.prefixPlayerController>(UGameplayStatics::GetPlayerController(WorldContextObject, 0)));
     return Cast<A$ncs.unreal.prefixPlayerController>(UGameplayStatics::GetPlayerController(WorldContextObject, 0));
 }

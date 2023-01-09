@@ -1,27 +1,19 @@
 ﻿#pragma once
 
 #include "CoreMinimal.h"
-#include "nverse/GAS/Attribute/NVBasicAttribute.h"
+#include "$ncs.project.name/GAS/Attribute/$ncs.unreal.prefixBasicAttribute.h"
 #include "GameFramework/HUD.h"
-#include "NVHUD.generated.h"
+#include "$ncs.unreal.prefixHUD.generated.h"
 
 UCLASS()
-class NVERSE_API ANVHUD : public AHUD
+class $ncs.unreal.api A$ncs.unreal.prefixHUD : public AHUD
 {
     GENERATED_BODY()
 
-    //DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnAddEffectDelegate, UAbilitySystemComponent*, ASC, FActiveGameplayEffectHandle, ActiveGameplayEffectHandle, const FGameplayEffectSpec&, GameplayEffectSpec);
-    //DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnRemoveEffectDelegate, UAbilitySystemComponent*, ASC, FActiveGameplayEffectHandle, ActiveGameplayEffectHandle, const FGameplayEffectRemovalInfo&, GameplayEffectRemovalInfo);
-
 public:
-    ANVHUD();
+    A$ncs.unreal.prefixHUD();
 
     void Initialize();
-/*
-    UPROPERTY(BlueprintAssignable, Category = "nverse|HUD")
-    FOnAddEffectDelegate OnAddEffectDelegate;
-    UPROPERTY(BlueprintAssignable, Category = "nverse|HUD")
-    FOnRemoveEffectDelegate OnRemoveEffectDelegate;*/
 
 protected:
     virtual void BeginPlay() override;
@@ -29,8 +21,8 @@ protected:
     UFUNCTION(BlueprintNativeEvent)
     void OnInitialize();
 
-    UFUNCTION(BlueprintPure, Category="nverse|HUD", meta=(WorldContext="WorldContextObject"))
-    static ANVHUD* GetNVHUD(const UObject* WorldContextObject);
+    UFUNCTION(BlueprintPure, Category="$ncs.project.name|HUD", meta=(WorldContext="WorldContextObject"))
+    static A$ncs.unreal.prefixHUD* Get$ncs.unreal.prefixHUD(const UObject* WorldContextObject);
 
 private:
     bool bInitialized = false;

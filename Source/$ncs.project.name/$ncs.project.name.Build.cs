@@ -4,7 +4,7 @@ using System;
 using System.Diagnostics;
 using UnrealBuildTool;
 
-public class nverse : ModuleRules
+public class $ncs.project.name : ModuleRules
 {
     public nverse(ReadOnlyTargetRules Target) : base(Target)
     {
@@ -15,12 +15,11 @@ public class nverse : ModuleRules
         {
             "Core", "CoreUObject", "Engine", "InputCore", "UMG", "SlateCore",
             "EnhancedInput",
-            "OnlineSubsystem", "Steamworks", "OnlineSubsystemSteam", "OnlineSubsystemUtils", "WebSockets",
-            "ProceduralMeshComponent",
-            "Niagara",
-            "GameplayAbilities", "GameplayTags", "GameplayTasks"
+            "OnlineSubsystem", "OnlineSubsystemSteam", "OnlineSubsystemUtils"
+            "Niagara"
         });
 
+        // build version
         var p = new Process();
         p.StartInfo.UseShellExecute = false;
         p.StartInfo.RedirectStandardOutput = true;
@@ -32,6 +31,6 @@ public class nverse : ModuleRules
         var lastCommit = p.StandardOutput.ReadToEnd().Trim('\n');
         p.WaitForExit();
 
-        PublicDefinitions.Add($"NVERSE_VERSION=\"1.0.0-dev.{lastCommit}\"");
+        PublicDefinitions.Add($"BUILD_VERSION=\"1.0.0-dev.{lastCommit}\"");
     }
 }

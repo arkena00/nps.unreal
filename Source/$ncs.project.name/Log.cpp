@@ -1,4 +1,3 @@
-#include "nverse/Log.h"
+#include "$ncs.project.name/Log.h"
 
-DEFINE_LOG_CATEGORY(LogNverse);
-DEFINE_LOG_CATEGORY(LogNVLobby);
+DEFINE_LOG_CATEGORY(Log$ncs.project.name);

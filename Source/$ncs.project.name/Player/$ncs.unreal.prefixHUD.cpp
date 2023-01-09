@@ -1,74 +1,38 @@
-﻿#include "NVHUD.h"
+﻿#include "$ncs.unreal.prefixHUD.h"
 
-#include "NVAvatar.h"
-#include "NVPlayerState.h"
+#include "$ncs.unreal.prefixPlayerState.h"
 #include "Kismet/GameplayStatics.h"
-#include "nverse/Log.h"
-#include "nverse/NVTags.h"
-#include "nverse/GAS/Attribute/NVBasicAttribute.h"
-#include "nverse/Subsystem/Lobby/NVLobbySystem.h"
 
-#define INIT_ATTRIBUTE(Name) \
-{ \
-    FOnAttributeChangeData AttributeData; \
-    AttributeData.NewValue =  NVPlayerState->GetBasicAttribute()->Name.GetCurrentValue(); \
-    AttributeData.OldValue = AttributeData.NewValue; \
-    On##Name##Update(AttributeData); \
-}
 
-#define MAKE_NOTIFIER(Name) \
-void ANVHUD::On##Name##Update(const FOnAttributeChangeData& Data) const \
-{ \
-    On##Name##UpdateDelegate.Broadcast(Data.NewValue); \
-}
-
-ANVHUD::ANVHUD()
+A$ncs.unreal.prefixHUD::A$ncs.unreal.prefixHUD()
 {
     PrimaryActorTick.bCanEverTick = true;
 }
 
-void ANVHUD::Initialize()
+void A$ncs.unreal.prefixHUD::Initialize()
 {
     if (bInitialized) return;
 
-    auto NVPlayerState = GetOwningPlayerController()->GetPlayerState<ANVPlayerState>();
+    auto NVPlayerState = GetOwningPlayerController()->GetPlayerState<A$ncs.unreal.prefixPlayerState>();
     if (IsValid(NVPlayerState))
     {
         // Create widgets
         OnInitialize();
 
-        // Broadcast delegates
-        auto ASC = NVPlayerState->GetAbilitySystemComponent();
-/*
-        ASC->OnActiveGameplayEffectAddedDelegateToSelf.AddWeakLambda(this, [this, ASC](UAbilitySystemComponent* Target, const FGameplayEffectSpec& Spec, FActiveGameplayEffectHandle ActiveHandle)
-        {
-            FGameplayTagContainer Tags;
-            if (Spec.Def->UIData)
-            {
-                //OnAddEffectDelegate.Broadcast(Target, ActiveHandle, Spec);
-
-                ASC->OnGameplayEffectRemoved_InfoDelegate(ActiveHandle)->AddWeakLambda(this, [this, ActiveHandle](const FGameplayEffectRemovalInfo& EffectInfo)
-                {
-                    //OnRemoveEffectDelegate.Broadcast(Target, ActiveHandle, EffectInfo);
-                });
-            }
-        });*/
-
         bInitialized = true;
     }
 }
 
-void ANVHUD::BeginPlay()
+void A$ncs.unreal.prefixHUD::BeginPlay()
 {
     Super::BeginPlay();
 }
 
-ANVHUD* ANVHUD::GetNVHUD(const UObject* WorldContextObject)
+A$ncs.unreal.prefixHUD* A$ncs.unreal.prefixHUD::Get$ncs.unreal.prefixHUD(const UObject* WorldContextObject)
 {
-    check(Cast<ANVHUD>(UGameplayStatics::GetPlayerController(WorldContextObject, 0)->GetHUD()));
-    return Cast<ANVHUD>(UGameplayStatics::GetPlayerController(WorldContextObject, 0)->GetHUD());
+    return Cast<A$ncs.unreal.prefixHUD>(UGameplayStatics::GetPlayerController(WorldContextObject, 0)->GetHUD());
 }
 
-void ANVHUD::OnInitialize_Implementation()
+void A$ncs.unreal.prefixHUD::OnInitialize_Implementation()
 {
 }

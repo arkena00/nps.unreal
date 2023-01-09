@@ -1,22 +1,16 @@
 ﻿#pragma once
 
-#include "nverse/player/NVPlayerController.h"
 #include "CoreMinimal.h"
 #include "GameFramework/GameMode.h"
-#include "nverse/Subsystem/Lobby/NVLobbyData.h"
-#include "nverse/Subsystem/Lobby/NVLobbyPlayerStatus.h"
-#include "NVGameMode.generated.h"
+#include "$ncs.unreal.prefixGameMode.generated.h"
 
 UCLASS()
-class NVERSE_API ANVGameMode final : public AGameModeBase
+class $ncs.unreal.api A$ncs.unreal.prefixGameMode final : public AGameModeBase
 {
     GENERATED_BODY()
 
 public:
-    AActor* FindPlayerStart(ANVPlayerState* NVPlayerState);
 
-    UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
-    FNVLobbyData DebugLobbyData;
 
 protected:
     virtual void BeginPlay() override;
@@ -27,6 +21,5 @@ protected:
     virtual void StartPlay() override;
 
 private:
-    UPROPERTY()
-    TArray<ANVPlayerController*> PlayerControllers;
+
 };

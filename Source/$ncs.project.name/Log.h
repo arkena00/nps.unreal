@@ -1,9 +1,5 @@
 #pragma once
 
-#define NV_STRINGIFY(x) #x
-#define NV_TOSTRING(x) NV_STRINGIFY(x)
-#define NB_LINE __FILE__ ":" NV_TOSTRING(__LINE__)
-
 DECLARE_LOG_CATEGORY_EXTERN(Log$ncs.project.name, Log, All);
 
 #define $ncs.project.prefix_log(message, ...) UE_LOG(Log$ncs.project.name, Display, TEXT(message), __VA_ARGS__)
