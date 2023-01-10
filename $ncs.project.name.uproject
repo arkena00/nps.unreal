@@ -1,34 +1,22 @@
 {
-    "FileVersion": 3,
-    "EngineAssociation": "{E774A748-444B-EB72-0237-1580DBEC6897}",
-    "Category": "",
-    "Description": "",
-    "Modules": [
-        {
-            "Name": "$ncs.project.name",
-            "Type": "Runtime",
-            "LoadingPhase": "Default",
-            "AdditionalDependencies": [
-                "Engine",
-            ]
-        }
-    ],
-    "Plugins": [
-        {
-            "Name": "ModelingToolsEditorMode",
-            "Enabled": true,
-            "TargetAllowList": [
-                "Editor"
-            ]
-        },
-        {
-            "Name": "Bridge",
-            "Enabled": true,
-            "SupportedTargetPlatforms": [
-                "Win64",
-                "Mac",
-                "Linux"
-            ]
-        }
-    ]
+	"FileVersion": 3,
+	"EngineAssociation": "{$ncs.unreal.engineID}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "$ncs.project.name",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "ModelingToolsEditorMode",
+			"Enabled": true,
+			"TargetAllowList": [
+				"Editor"
+			]
+		}
+	]
 }

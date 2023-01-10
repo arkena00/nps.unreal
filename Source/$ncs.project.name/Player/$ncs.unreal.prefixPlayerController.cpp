@@ -1,5 +1,7 @@
 ﻿#include "$ncs.unreal.prefixPlayerController.h"
 
+#include "Kismet/GameplayStatics.h"
+
 void A$ncs.unreal.prefixPlayerController::TryInitializeHUD() const
 {
     //if (GetPawn() && HasActorBegunPlay() && GetPlayerState<A$ncs.unreal.prefixPlayerState>()) Cast<A$ncs.unreal.prefixHUD>(GetHUD())->Initialize();

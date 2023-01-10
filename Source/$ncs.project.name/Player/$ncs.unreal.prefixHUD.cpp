@@ -13,8 +13,8 @@ void A$ncs.unreal.prefixHUD::Initialize()
 {
     if (bInitialized) return;
 
-    auto NVPlayerState = GetOwningPlayerController()->GetPlayerState<A$ncs.unreal.prefixPlayerState>();
-    if (IsValid(NVPlayerState))
+    auto $ncs.unreal.prefixPlayerState = GetOwningPlayerController()->GetPlayerState<A$ncs.unreal.prefixPlayerState>();
+    if (IsValid($ncs.unreal.prefixPlayerState))
     {
         // Create widgets
         OnInitialize();

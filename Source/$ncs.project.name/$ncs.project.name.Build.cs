@@ -1,22 +1,20 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
-
 using System;
 using System.Diagnostics;
 using UnrealBuildTool;
 
 public class $ncs.project.name : ModuleRules
 {
-    public nverse(ReadOnlyTargetRules Target) : base(Target)
+    public $ncs.project.name(ReadOnlyTargetRules Target) : base(Target)
     {
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
         CppStandard = CppStandardVersion.Cpp20;
 
         PublicDependencyModuleNames.AddRange(new string[]
         {
-            "Core", "CoreUObject", "Engine", "InputCore", "UMG", "SlateCore",
-            "EnhancedInput",
-            "OnlineSubsystem", "OnlineSubsystemSteam", "OnlineSubsystemUtils"
-            "Niagara"
+            "Core", "CoreUObject", "Engine", "InputCore", "UMG", "SlateCore"
+            , "EnhancedInput"
+            , "OnlineSubsystem", "OnlineSubsystemSteam", "OnlineSubsystemUtils"
+            , "Niagara"
         });
 
         // build version

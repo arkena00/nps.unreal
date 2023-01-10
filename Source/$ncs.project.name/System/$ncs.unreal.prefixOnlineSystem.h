@@ -1,10 +1,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Interfaces/OnlineSessionInterface.h"
 #include "OnlineSessionSettings.h"
 #include "Subsystems/GameInstanceSubsystem.h"
-#include "$ncs.unreal.prefixOnlineSubsystem.generated.h"
+#include "$ncs.unreal.prefixOnlineSystem.generated.h"
 
 class IOnlineSubsystem;
 
@@ -31,7 +30,7 @@ public:
     TSharedPtr<FOnlineSessionSettings> GetSettings();
     
 protected:
-    U$ncs.unreal.prefixOnlineSubsystem();
+    U$ncs.unreal.prefixOnlineSystem();
     virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 
     // Session
@@ -60,7 +59,7 @@ protected:
     FOnStartSessionCompleteDelegate OnStartSessionCompleteDelegate;
 
     // Settings
-    void OnSessionSettingsUpdated(FName SessionName, const FOnlineSessionSettings& Settings);
+    void OnSessionSettingsUpdated(FName SessionName, const FOnlineSessionSettings& InSettings);
     FOnSessionSettingsUpdatedDelegate OnSessionSettingsUpdatedDelegate;
     
 private:

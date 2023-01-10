@@ -11,7 +11,7 @@ void U$ncs.unreal.prefixAssetManager::PostInitialAssetScan()
     Super::PostInitialAssetScan();
 }
 
-TObjectPtr<U$ncs.unreal.prefixGameDataAsset> U$ncs.unreal.prefixAssetManager::GetGameData()
+TObjectPtr<U$ncs.unreal.prefixGameData> U$ncs.unreal.prefixAssetManager::GetGameData()
 {
     return GameData;
 }

@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 
-class FNVModule : public FDefaultGameModuleImpl
+class F$ncs.unreal.prefixModule : public FDefaultGameModuleImpl
 {
     virtual void StartupModule() override;
 };

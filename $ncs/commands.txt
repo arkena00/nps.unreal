@@ -1,6 +1,8 @@
 # create repo on github
 gh repo create $ncs.project.name --public
 
+$ncs.unreal.path/Engine/Build/BatchFiles/Build.bat -projectfiles -project="$ncs.meta.project_dir/$ncs.project.name.uproject" -game -engine -progress
+
 # initialize git
 git init
 git lfs install

@@ -20,6 +20,9 @@ public:
     UFUNCTION(NetMulticast, Reliable)
     void ClientEndGame();
 
+    UFUNCTION(BlueprintCallable, Category = "$ncs.project.name|GameState")
+    const TArray<A$ncs.unreal.prefixPlayerState*>& GetPlayers() const;
+
     //
 
     UPROPERTY(BlueprintAssignable, Category = "$ncs.project.name|GameState")
@@ -29,11 +32,9 @@ public:
 
     UPROPERTY(BlueprintAssignable, Category = "$ncs.project.name|GameState")
     FOnEndGameDelegate OnEndGameDelegate;
-    UPROPERTY(BlueprintAssignable, Category = "$ncs.project.name|GameState")
-    FOnEnterDimensionDelegate OnEnterDimensionDelegate;
 
     UFUNCTION(BlueprintPure, Category="$ncs.project.name|GameState", meta=(WorldContext="WorldContextObject"))
-    static A$ncs.unreal.prefixGameState* GetNVGameState(const UObject* WorldContextObject);
+    static A$ncs.unreal.prefixGameState* Get$ncs.unreal.prefixGameState(const UObject* WorldContextObject);
 
 protected:
     virtual void AddPlayerState(APlayerState* PlayerState) override;

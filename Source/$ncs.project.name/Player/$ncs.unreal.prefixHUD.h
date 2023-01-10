@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 #include "CoreMinimal.h"
-#include "$ncs.project.name/GAS/Attribute/$ncs.unreal.prefixBasicAttribute.h"
 #include "GameFramework/HUD.h"
 #include "$ncs.unreal.prefixHUD.generated.h"
 

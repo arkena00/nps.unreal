@@ -5,12 +5,12 @@
 #include "$ncs.unreal.prefixPlayerState.generated.h"
 
 UCLASS()
-class $ncs.unreal.api A$ncs.unreal.prefixNVPlayerState : public APlayerState
+class $ncs.unreal.api A$ncs.unreal.prefixPlayerState : public APlayerState
 {
     GENERATED_BODY()
 
 public:
-    A$ncs.unreal.prefixNVPlayerState();
+    A$ncs.unreal.prefixPlayerState();
 
     UFUNCTION(BlueprintCallable, Category = "$ncs.project.name|PlayerState")
     int GetTeamId() const;
@@ -23,14 +23,13 @@ public:
     //
 
     UFUNCTION(BlueprintPure, Category="$ncs.project.name|PlayerState", meta=(WorldContext="WorldContextObject"))
-    static A$ncs.unreal.prefixNVPlayerState* GetNVPlayerState(const UObject* WorldContextObject);
+    static A$ncs.unreal.prefixPlayerState* Get$ncs.unreal.prefixPlayerState(const UObject* WorldContextObject);
 
 protected:
-    virtual void BeginPlay() override;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     virtual void OnRep_PlayerName() override;
 
 private:
-    UPROPERTY(ReplicatedUsing = OnRep_Team)
+    UPROPERTY(Replicated)
     int TeamId = -1;
 };

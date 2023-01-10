@@ -1,3 +1,5 @@
 entity.name arkena00
-unreal.prefix ARK
-unreal.api ARK_API
+unreal.prefix NK
+unreal.api NK_API
+unreal.path D:/dev/UnrealEngine
+unreal.engineID 08AF3CF9-4B38-D5B4-6A75-3FA648D61CB5

@@ -1,5 +1,6 @@
 ﻿#include "$ncs.unreal.prefixGameState.h"
 #include "$ncs.project.name/player/$ncs.unreal.prefixPlayerState.h"
+#include "Kismet/GameplayStatics.h"
 #include "Net/UnrealNetwork.h"
 
 void A$ncs.unreal.prefixGameState::ClientEndGame_Implementation()
