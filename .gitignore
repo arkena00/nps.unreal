@@ -1,8 +1,10 @@
+Binaries
+Build
+Intermediate
+DerivedDataCache
+Platforms
+Saved
+
 .idea
 .vs
 .vscode
-Binaries
-Build
-DerivedDataCache
-Saved
-Intermediate
