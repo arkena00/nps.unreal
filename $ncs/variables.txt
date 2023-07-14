@@ -1,4 +1,5 @@
 entity.name arkena00
+unreal.template master
 unreal.prefix NK
 unreal.api NK_API
 unreal.path D:/dev/UnrealEngine
