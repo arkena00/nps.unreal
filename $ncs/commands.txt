@@ -14,6 +14,7 @@ git push -u origin master
 git checkout -b dev
 git push -u origin dev
 
-$ncs.unreal.path/Engine/Binaries/Win64 $ncs.meta.project_dir/$ncs.project.name.uproject -run=ResavePackages -fixupredirects -autocheckout -projectonly -unattended
+$ncs.unreal.path/Engine/Binaries/Win64/UnrealEditor $ncs.meta.project_dir/$ncs.project.name.uproject -run=ResavePackages -fixupredirects -autocheckout -projectonly -unattended
+$ncs.unreal.path/Engine/Binaries/Win64/UnrealEditor $ncs.meta.project_dir/$ncs.project.name.uproject -run=CompileAllBlueprints
 
-$ncs.meta.project_dir/$ncs.project.name.sln
+start $ncs.meta.project_dir/$ncs.project.name.sln

@@ -12,7 +12,7 @@ A$ncs.unreal.prefixAvatar::A$ncs.unreal.prefixAvatar()
 void A$ncs.unreal.prefixAvatar::InitializeAbilities()
 {
     $ncs.unreal.prefixAbilityComponent->ClearAllAbilities();
-    $ncs.unreal.prefixAbilityComponent->GiveAbility(FGameplayAbilitySpec(Ability));
+    // $ncs.unreal.prefixAbilityComponent->GiveAbility(FGameplayAbilitySpec(Ability));
 }
 
 void A$ncs.unreal.prefixAvatar::InitializeAttributes()
