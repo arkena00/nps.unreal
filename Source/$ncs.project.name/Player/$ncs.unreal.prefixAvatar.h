@@ -8,7 +8,7 @@
 class UGameplayAbility;
 class U$ncs.unreal.prefixAbilityComponent;
 UCLASS()
-class $ncs.project.name_API A$ncs.unreal.prefixAvatar : public ACharacter
+class $ncs.unreal.api A$ncs.unreal.prefixAvatar : public ACharacter
 {
     GENERATED_BODY()
 

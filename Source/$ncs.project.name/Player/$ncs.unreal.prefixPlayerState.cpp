@@ -4,7 +4,7 @@
 #include "$ncs.project.name/GAS/$ncs.unreal.prefixAttributeSet.h"
 #include "Kismet/GameplayStatics.h"
 
-AGSPlayerState::AGSPlayerState()
+A$ncs.unreal.prefixPlayerState::A$ncs.unreal.prefixPlayerState()
 {
     NetUpdateFrequency = 100.f;
     $ncs.unreal.prefixAbilityComponent = CreateDefaultSubobject<U$ncs.unreal.prefixAbilityComponent>("$ncs.unreal.prefixAbilityComponent");

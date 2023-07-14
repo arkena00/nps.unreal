@@ -6,7 +6,7 @@
 #include "$ncs.unreal.prefixAbilitySystemGlobals.generated.h"
 
 UCLASS()
-class $ncs.project.name_API U$ncs.unreal.prefixAbilitySystemGlobals : public UAbilitySystemGlobals
+class $ncs.unreal.api U$ncs.unreal.prefixAbilitySystemGlobals : public UAbilitySystemGlobals
 {
     GENERATED_BODY()
 

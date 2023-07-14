@@ -5,7 +5,7 @@
 #include "$ncs.unreal.prefixAbilityComponent.generated.h"
 
 UCLASS()
-class $ncs.project.name_API U$ncs.unreal.prefixAbilityComponent : public UAbilitySystemComponent
+class $ncs.unreal.api U$ncs.unreal.prefixAbilityComponent : public UAbilitySystemComponent
 {
     GENERATED_BODY()
 

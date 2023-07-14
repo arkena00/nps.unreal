@@ -7,7 +7,7 @@
 #include "$ncs.unreal.prefixAttributeSet.generated.h"
 
 UCLASS()
-class $ncs.project.name_API U$ncs.unreal.prefixAttributeSet : public UAttributeSet
+class $ncs.unreal.api U$ncs.unreal.prefixAttributeSet : public UAttributeSet
 {
     GENERATED_BODY()
 
