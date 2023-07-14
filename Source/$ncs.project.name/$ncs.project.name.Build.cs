@@ -13,7 +13,7 @@ public class $ncs.project.name : ModuleRules
         {
             "Core", "CoreUObject", "Engine", "InputCore", "UMG", "SlateCore"
             , "EnhancedInput"
-            , "OnlineSubsystem", "OnlineSubsystemSteam", "OnlineSubsystemUtils"
+            , "GameplayAbilities", "GameplayTags", "GameplayTasks"
             , "Niagara"
         });
 

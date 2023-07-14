@@ -7,9 +7,5 @@ IMPLEMENT_PRIMARY_GAME_MODULE(F$ncs.unreal.prefixModule, $ncs.project.name, "$nc
 
 void F$ncs.unreal.prefixModule::StartupModule()
 {
-    //auto& Manager = UGameplayTagsManager::Get();
 
-    // Manager.AddNativeGameplayTag(TagName);
-
-    //UGameplayTagsManager::Get().DoneAddingNativeTags();
 }

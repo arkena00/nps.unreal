@@ -13,7 +13,7 @@ public:
     static A$ncs.unreal.prefixPlayerController* Get$ncs.unreal.prefixPlayerController(const UObject* WorldContextObject);
 
 protected:
-    void TryInitializeHUD() const;
+
 
 private:
 

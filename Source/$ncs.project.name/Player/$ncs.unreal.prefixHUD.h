@@ -12,17 +12,12 @@ class $ncs.unreal.api A$ncs.unreal.prefixHUD : public AHUD
 public:
     A$ncs.unreal.prefixHUD();
 
-    void Initialize();
-
 protected:
     virtual void BeginPlay() override;
-
-    UFUNCTION(BlueprintNativeEvent)
-    void OnInitialize();
 
     UFUNCTION(BlueprintPure, Category="$ncs.project.name|HUD", meta=(WorldContext="WorldContextObject"))
     static A$ncs.unreal.prefixHUD* Get$ncs.unreal.prefixHUD(const UObject* WorldContextObject);
 
 private:
-    bool bInitialized = false;
+
 };
