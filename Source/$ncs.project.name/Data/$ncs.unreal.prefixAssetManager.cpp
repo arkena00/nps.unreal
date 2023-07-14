@@ -1,9 +1,12 @@
 #include "$ncs.unreal.prefixAssetManager.h"
 #include "$ncs.unreal.prefixGameData.h"
+#include "AbilitySystemGlobals.h"
 
 void U$ncs.unreal.prefixAssetManager::StartInitialLoading()
 {
     Super::StartInitialLoading();
+
+    UAbilitySystemGlobals::Get().InitGlobalData();
 }
 
 void U$ncs.unreal.prefixAssetManager::PostInitialAssetScan()
