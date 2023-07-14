@@ -2,15 +2,15 @@
 
 #include "CoreMinimal.h"
 #include "AbilitySystemGlobals.h"
-#include "GSEffectContext.h"
-#include "GSAbilitySystemGlobals.generated.h"
+#include "$ncs.unreal.prefixEffectContext.h"
+#include "$ncs.unreal.prefixAbilitySystemGlobals.generated.h"
 
 UCLASS()
-class $ncs.project.name_API UGSAbilitySystemGlobals : public UAbilitySystemGlobals
+class $ncs.project.name_API U$ncs.unreal.prefixAbilitySystemGlobals : public UAbilitySystemGlobals
 {
     GENERATED_BODY()
 
 public:
-    virtual FGSEffectContext* AllocGameplayEffectContext() const override;
+    virtual F$ncs.unreal.prefixEffectContext* AllocGameplayEffectContext() const override;
     virtual void InitGameplayCueParameters(FGameplayCueParameters& CueParameters, const FGameplayEffectContextHandle& EffectContext) override;
 };
