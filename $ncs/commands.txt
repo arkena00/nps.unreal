@@ -9,12 +9,12 @@ git lfs install
 git remote add origin https://www.github.com/$ncs.entity.name/$ncs.project.name.git
 git add .
 git commit -a -m "[init]"
-git branch -M master
-git push -u origin master
+git branch -M main
+git push -u origin main
 git checkout -b dev
 git push -u origin dev
 
-$ncs.unreal.path/Engine/Binaries/Win64/UnrealEditor $ncs.meta.project_dir/$ncs.project.name.uproject -run=ResavePackages -fixupredirects -autocheckout -projectonly -unattended
-$ncs.unreal.path/Engine/Binaries/Win64/UnrealEditor $ncs.meta.project_dir/$ncs.project.name.uproject -run=CompileAllBlueprints
+# $ncs.unreal.path/Engine/Binaries/Win64/UnrealEditor $ncs.meta.project_dir/$ncs.project.name.uproject -run=ResavePackages -fixupredirects -autocheckout -projectonly -unattended
+# $ncs.unreal.path/Engine/Binaries/Win64/UnrealEditor $ncs.meta.project_dir/$ncs.project.name.uproject -run=CompileAllBlueprints
 
-start $ncs.meta.project_dir/$ncs.project.name.sln
+# start $ncs.meta.project_dir/$ncs.project.name.sln

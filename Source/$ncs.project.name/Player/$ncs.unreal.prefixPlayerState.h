@@ -25,7 +25,7 @@ public:
     
     //
 
-    UFUNCTION(BlueprintPure, Category="$ncs.project.name|PlayerState", meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, Category = "$ncs.project.name|PlayerState", meta = (WorldContext = "WorldContextObject"))
     static A$ncs.unreal.prefixPlayerState* Get$ncs.unreal.prefixPlayerState(const UObject* WorldContextObject);
 
 protected:

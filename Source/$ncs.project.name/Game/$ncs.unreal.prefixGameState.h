@@ -15,6 +15,6 @@ public:
     UPROPERTY(BlueprintAssignable, Category = "$ncs.project.name|GameState")
     FOnEndGameDelegate OnEndGameDelegate;
 
-    UFUNCTION(BlueprintPure, Category="$ncs.project.name|GameState", meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, Category = "$ncs.project.name|GameState", meta = (WorldContext = "WorldContextObject"))
     static A$ncs.unreal.prefixGameState* Get$ncs.unreal.prefixGameState(const UObject* WorldContextObject);
 };

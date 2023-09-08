@@ -9,7 +9,7 @@ class $ncs.unreal.api A$ncs.unreal.prefixPlayerController final : public APlayer
     GENERATED_BODY()
 
 public:
-    UFUNCTION(BlueprintPure, Category="$ncs.unreal.prefix|PlayerController", meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, Category = "$ncs.unreal.prefix|PlayerController", meta = (WorldContext = "WorldContextObject"))
     static A$ncs.unreal.prefixPlayerController* Get$ncs.unreal.prefixPlayerController(const UObject* WorldContextObject);
 
 protected:

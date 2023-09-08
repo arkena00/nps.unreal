@@ -5,27 +5,49 @@
 #include "InputMappingContext.h"
 #include "$ncs.unreal.prefixAvatar.generated.h"
 
-class UGameplayAbility;
+class U$ncs.unreal.prefixAbility;
 class U$ncs.unreal.prefixAbilityComponent;
+class U$ncs.unreal.prefixAvatarData;
+
 UCLASS()
-class $ncs.unreal.api A$ncs.unreal.prefixAvatar : public ACharacter
+class $ncs.unreal.api A$ncs.unreal.prefixAvatar : public ACharacter, public IAbilitySystemInterface
 {
     GENERATED_BODY()
 
 public:
     A$ncs.unreal.prefixAvatar();
 
-    UFUNCTION(BlueprintCallable, Category = "$ncs.project.name")
-    void InitializeAbilities();
-    UFUNCTION(BlueprintCallable, Category = "$ncs.project.name")
-    void InitializeAttributes();
+    UFUNCTION(BlueprintCallable, Category = "$ncs.project.name|Avatar")
+    virtual U$ncs.unreal.prefixAbilityComponent* GetAbilitySystemComponent() const override;
+
+    UFUNCTION(BlueprintPure, Category = "$ncs.project.name|Avatar", meta = (WorldContext = "WorldContextObject"))
+    static A$ncs.unreal.prefixAvatar* GetA$ncs.unreal.prefixAvatar(const UObject* WorldContextObject);
+
+    //
+
+    UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "$ncs.project.name|Avatar")
+    TObjectPtr<UInputMappingContext> InputMappingContext;
+
+    UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "$ncs.project.name|Avatar")
+    TObjectPtr<U$ncs.unreal.prefixAvatarData> Data;
 
 protected:
-    virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+    virtual void BeginPlay() override;
     virtual void PawnClientRestart() override;
     virtual void PossessedBy(AController* NewController) override;
+    virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+    virtual void OnRep_PlayerState() override;
+
+
+    void InputAbilityTriggered(const U$ncs.unreal.prefixAbility* $ncs.unreal.prefixAbility);
+
+    void InitializeAbilities();
+    void InitializeAbilityComponent();
+    void InitializeAttributes();
+    void TryInitialize();
 
 private:
+    bool bInitialized = false;
     TObjectPtr<UInputMappingContext> InputMappingContext;
     TWeakObjectPtr<U$ncs.unreal.prefixAbilityComponent> $ncs.unreal.prefixAbilityComponent;
 };

@@ -9,17 +9,31 @@ class $ncs.unreal.api U$ncs.unreal.prefixAbilityComponent : public UAbilitySyste
 {
     GENERATED_BODY()
 
+    DECLARE_DYNAMIC_DELEGATE_OneParam(FOnAttributeUpdateDelegate, float, Value);
+
 public:
     U$ncs.unreal.prefixAbilityComponent();
+
+    // Attribute
+    UFUNCTION(BlueprintCallable, Category = "$ncs.project.name|AbilityComponent")
+    void BindAttributeUpdate(FGameplayAttribute GameplayAttribute,
+                             FOnAttributeUpdateDelegate OnAttributeUpdateDelegate);
+    UFUNCTION(BlueprintCallable, Category = "$ncs.project.name|AbilityComponent")
+    void BindAndInitAttributeUpdate(FGameplayAttribute GameplayAttribute,
+                                    FOnAttributeUpdateDelegate OnAttributeUpdateDelegate);
+
+    // Input
+    void AbilityInputPressed(const U$ncs.unreal.prefixAbility* $ncs.unreal.prefixAbility);
+    void ProcessAbilityInput(float DeltaTime, bool bGamePaused);
+
+    UFUNCTION(BlueprintPure, Category="$ncs.project.name|AbilityComponent", meta = (WorldContext = "WorldContextObject"))
+    static U$ncs.unreal.prefixAbilityComponent* Get$ncs.unreal.prefixAbilityComponent(const UObject* WorldContextObject);
 
 protected:
     virtual void AbilitySpecInputPressed(FGameplayAbilitySpec& Spec) override;
 
 private:
-    // Handles to abilities that had their input pressed this frame.
     TArray<FGameplayAbilitySpecHandle> InputPressedSpecHandles;
-    // Handles to abilities that had their input released this frame.
     TArray<FGameplayAbilitySpecHandle> InputReleasedSpecHandles;
-    // Handles to abilities that have their input held.
     TArray<FGameplayAbilitySpecHandle> InputHeldSpecHandles;
 };

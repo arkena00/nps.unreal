@@ -15,7 +15,7 @@ public:
 protected:
     virtual void BeginPlay() override;
 
-    UFUNCTION(BlueprintPure, Category="$ncs.project.name|HUD", meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, Category = "$ncs.project.name|HUD", meta = (WorldContext = "WorldContextObject"))
     static A$ncs.unreal.prefixHUD* Get$ncs.unreal.prefixHUD(const UObject* WorldContextObject);
 
 private:

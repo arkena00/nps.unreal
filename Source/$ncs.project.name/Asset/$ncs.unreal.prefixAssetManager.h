@@ -21,7 +21,7 @@ public:
 
     static U$ncs.unreal.prefixAssetManager* Get();
 
-    UFUNCTION(BlueprintPure, Category="$ncs.project.name|AssetManager", meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, Category = "$ncs.project.name|AssetManager", meta = (WorldContext = "WorldContextObject"))
     static U$ncs.unreal.prefixAssetManager* Get$ncs.unreal.prefixAssetManager();
 
     //
