@@ -1,7 +1,6 @@
 ﻿#include "$ncs.unreal.prefixGameInstance.h"
 
 #include "Modules/BuildVersion.h"
-#include "$ncs.project.name/Data/$ncs.unreal.prefixAssetManager.h"
 
 void U$ncs.unreal.prefixGameInstance::Init()
 {

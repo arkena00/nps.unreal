@@ -1,19 +1,12 @@
 ﻿#include "$ncs.unreal.prefixAbilityComponent.h"
+#include "$ncs.unreal.prefixAbility.h"
+#include "Kismet/GameplayStatics.h"
+#include "$ncs.project.name/Player/$ncs.unreal.prefixPlayerState.h"
 
 U$ncs.unreal.prefixAbilityComponent::U$ncs.unreal.prefixAbilityComponent()
 {
     SetIsReplicated(true);
     ReplicationMode = EGameplayEffectReplicationMode::Mixed;
-}
-
-void U$ncs.unreal.prefixAbilityComponent::AbilitySpecInputPressed(FGameplayAbilitySpec& Spec)
-{
-    Super::AbilitySpecInputPressed(Spec);
-
-    if (Spec.IsActive())
-    {
-        InvokeReplicatedEvent(EAbilityGenericReplicatedEvent::InputPressed, Spec.Handle, Spec.ActivationInfo.GetActivationPredictionKey());
-    }
 }
 
 void U$ncs.unreal.prefixAbilityComponent::BindAttributeUpdate(FGameplayAttribute GameplayAttribute,
@@ -30,18 +23,6 @@ void U$ncs.unreal.prefixAbilityComponent::BindAndInitAttributeUpdate(FGameplayAt
 {
     BindAttributeUpdate(GameplayAttribute, OnAttributeUpdateDelegate);
     OnAttributeUpdateDelegate.Execute(GetNumericAttribute(GameplayAttribute));
-}
-
-void U$ncs.unreal.prefixAbilityComponent::AbilityInputPressed(const U$ncs.unreal.prefixAbility* NVAbility)
-{
-    for (const FGameplayAbilitySpec& AbilitySpec : ActivatableAbilities.Items)
-    {
-        if (AbilitySpec.Ability == NVAbility)
-        {
-            InputPressedSpecHandles.AddUnique(AbilitySpec.Handle);
-            InputHeldSpecHandles.AddUnique(AbilitySpec.Handle);
-        }
-    }
 }
 
 void U$ncs.unreal.prefixAbilityComponent::AbilitySpecInputPressed(FGameplayAbilitySpec& Spec)

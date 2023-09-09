@@ -2,6 +2,7 @@
 
 #include "EnhancedInputSubsystems.h"
 #include "$ncs.unreal.prefixPlayerState.h"
+#include "Kismet/GameplayStatics.h"
 #include "$ncs.project.name/GAS/$ncs.unreal.prefixAttributeSet.h"
 
 A$ncs.unreal.prefixAvatar::A$ncs.unreal.prefixAvatar()
@@ -56,7 +57,8 @@ void A$ncs.unreal.prefixAvatar::OnRep_PlayerState()
 
 U$ncs.unreal.prefixAbilityComponent* A$ncs.unreal.prefixAvatar::GetAbilitySystemComponent() const
 {
-    return ensure($ncs.unreal.prefixAbilityComponent.Get());
+    ensure($ncs.unreal.prefixAbilityComponent.Get());
+    return $ncs.unreal.prefixAbilityComponent.Get();
 }
 
 void A$ncs.unreal.prefixAvatar::InputAbilityTriggered(const U$ncs.unreal.prefixAbility* $ncs.unreal.prefixAbility)
@@ -69,7 +71,7 @@ void A$ncs.unreal.prefixAvatar::InitializeAbilities()
     $ncs.unreal.prefixAbilityComponent->ClearAllAbilities();
     for (auto AbilityClass : Data->Abilities)
     {
-        NKAbilityComponent->GiveAbility(FGameplayAbilitySpec(AbilityClass));
+        $ncs.unreal.prefixAbilityComponent->GiveAbility(FGameplayAbilitySpec(AbilityClass));
     }
 
     const auto& EffectContext = GetAbilitySystemComponent()->MakeEffectContext();
@@ -99,42 +101,13 @@ void A$ncs.unreal.prefixAvatar::InitializeAttributes()
 
 void A$ncs.unreal.prefixAvatar::TryInitialize()
 {
-    if (!bInitialized && IsLocallyControlled() && GetPlayerState() && HasActorBegunPlay())
-    {
-        Cast<ANKPlayerController>(GetController())->OnInitializeAvatarDelegate.Broadcast();
-        bInitialized = true;
-    }
-}
-
-void A$ncs.unreal.prefixAvatar::InitializeAbilities()
-{
-    $ncs.unreal.prefixAbilityComponent->ClearAllAbilities();
-    for (auto AbilityClass : Data->Abilities)
-    {
-        $ncs.unreal.prefixAbilityComponent->GiveAbility(FGameplayAbilitySpec(AbilityClass));
-    }
-
-    const auto& EffectContext = GetAbilitySystemComponent()->MakeEffectContext();
-    for (auto Effect : Data->Effects)
-    {
-        $ncs.unreal.prefixAbilityComponent->ApplyGameplayEffectToSelf(Effect->GetDefaultObject<UGameplayEffect>(), 1, EffectContext);
-    }
-}
-
-void A$ncs.unreal.prefixAvatar::InitializeAttributes()
-{
-    const auto AttributeSet = Cast<ANKPlayerState>(GetPlayerState())->GetAttributeSet();
-    AttributeSet->InitHealthMax(100);
-    AttributeSet->InitHealth(100);
-    AttributeSet->InitFood(100);
-    AttributeSet->InitWater(100);
-}
-
-void A$ncs.unreal.prefixAvatar::TryInitialize()
-{
     if (IsLocallyControlled() && !bInitialized && GetPlayerState() && HasActorBegunPlay())
     {
-        Cast<ANKPlayerController>(GetController())->OnInitializeAvatarDelegate.Broadcast();
         bInitialized = true;
     }
+}
+
+A$ncs.unreal.prefixAvatar* A$ncs.unreal.prefixAvatar::GetA$ncs.unreal.prefixAvatar(const UObject* WorldContextObject)
+{
+  return Cast<A$ncs.unreal.prefixAvatar>(UGameplayStatics::GetPlayerController(WorldContextObject, 0)->GetPawn());
 }

@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "CoreMinimal.h"
+#include "AbilitySystemInterface.h"
 #include "GameFramework/Character.h"
 #include "InputMappingContext.h"
 #include "$ncs.unreal.prefixAvatar.generated.h"
@@ -48,6 +49,5 @@ protected:
 
 private:
     bool bInitialized = false;
-    TObjectPtr<UInputMappingContext> InputMappingContext;
     TWeakObjectPtr<U$ncs.unreal.prefixAbilityComponent> $ncs.unreal.prefixAbilityComponent;
 };

@@ -1,8 +1,11 @@
 ﻿#pragma once
 
 #include "CoreMinimal.h"
+#include "AttributeSet.h"
 #include "AbilitySystemComponent.h"
 #include "$ncs.unreal.prefixAbilityComponent.generated.h"
+
+class U$ncs.unreal.prefixAbility;
 
 UCLASS()
 class $ncs.unreal.api U$ncs.unreal.prefixAbilityComponent : public UAbilitySystemComponent
