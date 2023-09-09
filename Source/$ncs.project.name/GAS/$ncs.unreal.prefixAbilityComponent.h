@@ -26,7 +26,7 @@ public:
                                     FOnAttributeUpdateDelegate OnAttributeUpdateDelegate);
 
     // Input
-    void AbilityInputPressed(const U$ncs.unreal.prefixAbility* $ncs.unreal.prefixAbility);
+    void AbilityInputPressed(const U$ncs.unreal.prefixAbility* Ability);
     void ProcessAbilityInput(float DeltaTime, bool bGamePaused);
 
     UFUNCTION(BlueprintPure, Category="$ncs.project.name|AbilityComponent", meta = (WorldContext = "WorldContextObject"))

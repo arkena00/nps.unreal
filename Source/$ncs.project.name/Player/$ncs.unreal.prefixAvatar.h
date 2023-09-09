@@ -4,6 +4,7 @@
 #include "AbilitySystemInterface.h"
 #include "GameFramework/Character.h"
 #include "InputMappingContext.h"
+#include "$ncs.project.name/GAS/$ncs.unreal.prefixAbilityComponent.h"
 #include "$ncs.unreal.prefixAvatar.generated.h"
 
 class U$ncs.unreal.prefixAbility;

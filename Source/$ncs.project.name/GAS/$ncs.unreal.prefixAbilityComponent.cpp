@@ -25,6 +25,18 @@ void U$ncs.unreal.prefixAbilityComponent::BindAndInitAttributeUpdate(FGameplayAt
     OnAttributeUpdateDelegate.Execute(GetNumericAttribute(GameplayAttribute));
 }
 
+void U$ncs.unreal.prefixAbilityComponent::AbilityInputPressed(const U$ncs.unreal.prefixAbility* Ability)
+{
+    for (const FGameplayAbilitySpec& AbilitySpec : ActivatableAbilities.Items)
+    {
+        if (AbilitySpec.Ability == Ability)
+        {
+            InputPressedSpecHandles.AddUnique(AbilitySpec.Handle);
+            InputHeldSpecHandles.AddUnique(AbilitySpec.Handle);
+        }
+    }
+}
+
 void U$ncs.unreal.prefixAbilityComponent::AbilitySpecInputPressed(FGameplayAbilitySpec& Spec)
 {
     Super::AbilitySpecInputPressed(Spec);

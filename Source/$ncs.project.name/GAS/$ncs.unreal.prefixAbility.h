@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Abilities/GameplayAbility.h"
-#include "NKAbility.generated.h"
+#include "$ncs.unreal.prefixAbility.generated.h"
 
 class UInputAction;
 

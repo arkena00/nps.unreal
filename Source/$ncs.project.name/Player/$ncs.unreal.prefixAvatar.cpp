@@ -2,8 +2,10 @@
 
 #include "EnhancedInputSubsystems.h"
 #include "$ncs.unreal.prefixPlayerState.h"
+#include "Avatar/$ncs.unreal.prefixAvatarData.h"
 #include "Kismet/GameplayStatics.h"
 #include "$ncs.project.name/GAS/$ncs.unreal.prefixAttributeSet.h"
+#include "$ncs.project.name/GAS/$ncs.unreal.prefixAbility.h"
 
 A$ncs.unreal.prefixAvatar::A$ncs.unreal.prefixAvatar()
 {
@@ -83,11 +85,11 @@ void A$ncs.unreal.prefixAvatar::InitializeAbilities()
 
 void A$ncs.unreal.prefixAvatar::InitializeAbilityComponent()
 {
-    check(Cast<ANKPlayerState>(GetPlayerState()));
+    check(Cast<A$ncs.unreal.prefixPlayerState>(GetPlayerState()));
 
     if (!$ncs.unreal.prefixAbilityComponent.IsValid())
     {
-        $ncs.unreal.prefixAbilityComponent = Cast<ANKPlayerState>(GetPlayerState())->GetAbilitySystemComponent();
+        $ncs.unreal.prefixAbilityComponent = Cast<A$ncs.unreal.prefixPlayerState>(GetPlayerState())->GetAbilitySystemComponent();
         $ncs.unreal.prefixAbilityComponent->InitAbilityActorInfo(GetPlayerState(), this);
     }
 }
