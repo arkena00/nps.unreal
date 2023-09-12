@@ -28,10 +28,7 @@ public:
     //
 
     UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "$ncs.project.name|Avatar")
-    TObjectPtr<UInputMappingContext> InputMappingContext;
-
-    UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "$ncs.project.name|Avatar")
-    TObjectPtr<U$ncs.unreal.prefixAvatarData> Data;
+    TObjectPtr<UZTAvatarData> Data;
 
 protected:
     virtual void BeginPlay() override;
@@ -40,8 +37,8 @@ protected:
     virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
     virtual void OnRep_PlayerState() override;
 
-
     void InputAbilityTriggered(const U$ncs.unreal.prefixAbility* $ncs.unreal.prefixAbility);
+    void InputMove(const FInputActionValue& InputValue);
 
     void InitializeAbilities();
     void InitializeAbilityComponent();

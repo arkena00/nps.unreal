@@ -18,6 +18,12 @@ protected:
     UFUNCTION(BlueprintPure, Category = "$ncs.project.name|HUD", meta = (WorldContext = "WorldContextObject"))
     static A$ncs.unreal.prefixHUD* Get$ncs.unreal.prefixHUD(const UObject* WorldContextObject);
 
-private:
+    //
 
+    UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "$ncs.project.name")
+    TSubclassOf<UUserWidget> PlayerMainWidgetClass;
+
+private:
+    UPROPERTY()
+    UUserWidget* PlayerMainWidget = nullptr;
 };

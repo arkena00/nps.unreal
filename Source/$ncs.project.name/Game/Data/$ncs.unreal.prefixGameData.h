@@ -11,4 +11,6 @@ class $ncs.unreal.api U$ncs.unreal.prefixGameData : public UPrimaryDataAsset
 
 public:
 
+protected:
+    virtual FPrimaryAssetId GetPrimaryAssetId() const override;
 };

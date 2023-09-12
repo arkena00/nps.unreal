@@ -11,10 +11,20 @@ void U$ncs.unreal.prefixAssetManager::StartInitialLoading()
 void U$ncs.unreal.prefixAssetManager::PostInitialAssetScan()
 {
     Super::PostInitialAssetScan();
+
+    // Game
+    const auto GameDataAssetHandle = LoadPrimaryAssetsWithType(GameDataType);
+    if (GameDataAssetHandle.IsValid())
+    {
+        GameDataAssetHandle->WaitUntilComplete(0.f, false);
+        GameData = GetPrimaryAssetObject<U$ncs.unreal.prefixGameData>(GameDataAssetHandle->GetLoadedAsset()->GetPrimaryAssetId());
+    }
+    ensure(GameData);
 }
 
 TObjectPtr<U$ncs.unreal.prefixGameData> U$ncs.unreal.prefixAssetManager::GetGameData()
 {
+    ensure(GameData);
     return GameData;
 }
 

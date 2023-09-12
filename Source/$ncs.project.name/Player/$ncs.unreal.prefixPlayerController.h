@@ -13,7 +13,7 @@ public:
     static A$ncs.unreal.prefixPlayerController* Get$ncs.unreal.prefixPlayerController(const UObject* WorldContextObject);
 
 protected:
-
+    virtual void PostProcessInput(const float DeltaTime, const bool bGamePaused) override;
 
 private:
 

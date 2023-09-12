@@ -1,8 +1,11 @@
 ﻿#include "$ncs.unreal.prefixAvatar.h"
 
+#include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "$ncs.unreal.prefixPlayerState.h"
 #include "Avatar/$ncs.unreal.prefixAvatarData.h"
+#include "Input/$ncs.unreal.prefixAvatarInputData.h"
+#include "Input/$ncs.unreal.prefixInputComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "$ncs.project.name/GAS/$ncs.unreal.prefixAttributeSet.h"
 #include "$ncs.project.name/GAS/$ncs.unreal.prefixAbility.h"
@@ -21,6 +24,16 @@ void A$ncs.unreal.prefixAvatar::BeginPlay()
 void A$ncs.unreal.prefixAvatar::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
     Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+    if (auto* $ncs.unreal.prefixInputComponent = CastChecked<U$ncs.unreal.prefixInputComponent>(InputComponent))
+    {
+        $ncs.unreal.prefixInputComponent->BindAction(Data->InputData->Move, ETriggerEvent::Triggered, this, &A$ncs.unreal.prefixAvatar::InputMove);
+
+        for (auto AbilityClass : Data->Abilities)
+        {
+            $ncs.unreal.prefixInputComponent->BindAbility(AbilityClass, ETriggerEvent::Triggered, this, &A$ncs.unreal.prefixAvatar::InputAbilityTriggered);
+        }
+    }
 }
 
 void A$ncs.unreal.prefixAvatar::PawnClientRestart()
@@ -32,7 +45,7 @@ void A$ncs.unreal.prefixAvatar::PawnClientRestart()
         if (auto Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PC->GetLocalPlayer()))
         {
             Subsystem->ClearAllMappings();
-            Subsystem->AddMappingContext(InputMappingContext, 0);
+            Subsystem->AddMappingContext(Data->InputData->MappingContext, 0);
         }
     }
 }
@@ -42,6 +55,8 @@ void A$ncs.unreal.prefixAvatar::PossessedBy(AController* NewController)
     Super::PossessedBy(NewController);
     if (!$ncs.unreal.prefixAbilityComponent.IsValid())
     {
+        if (!ensure(GetPlayerState())) return;
+
         $ncs.unreal.prefixAbilityComponent = GetPlayerStateChecked<A$ncs.unreal.prefixPlayerState>()->GetAbilitySystemComponent();
         $ncs.unreal.prefixAbilityComponent->InitAbilityActorInfo(GetPlayerState(), this);
     }
@@ -66,6 +81,18 @@ U$ncs.unreal.prefixAbilityComponent* A$ncs.unreal.prefixAvatar::GetAbilitySystem
 void A$ncs.unreal.prefixAvatar::InputAbilityTriggered(const U$ncs.unreal.prefixAbility* $ncs.unreal.prefixAbility)
 {
     GetAbilitySystemComponent()->AbilityInputPressed($ncs.unreal.prefixAbility);
+}
+
+void A$ncs.unreal.prefixAvatar::InputMove(const FInputActionValue& InputValue)
+{
+    if (Controller)
+    {
+        const FRotator Rotation = Controller->GetControlRotation();
+        const auto Value = InputValue.Get<FVector>();
+
+        if (Value.X != 0) AddMovementInput(FRotationMatrix{ FRotator{ 0.f, Rotation.Yaw, 0.f } }.GetUnitAxis(EAxis::Y), Value.X);
+        if (Value.Y != 0) AddMovementInput(FRotationMatrix{ FRotator{ 0.f, Rotation.Yaw, 0.f } }.GetUnitAxis(EAxis::X), Value.Y);
+    }
 }
 
 void A$ncs.unreal.prefixAvatar::InitializeAbilities()
