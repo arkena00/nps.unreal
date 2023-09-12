@@ -28,7 +28,7 @@ public:
     //
 
     UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "$ncs.project.name|Avatar")
-    TObjectPtr<UZTAvatarData> Data;
+    TObjectPtr<U$ncs.unreal.prefixAvatarData> Data;
 
 protected:
     virtual void BeginPlay() override;
